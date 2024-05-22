@@ -1,36 +1,20 @@
 #include <stdio.h>
 
 int main() {
-    int n;
+    int n, temp;
+    int sum = 0, rev = 0;
     scanf("%d", &n);
-        for (int i = 2; i * i <= n; i++) {
-            if (n % i == 0) {
-                break;
-            }
+    for (int i=1;i<n;i++) {
+        if (n%i==0) {
+            sum=sum+i;
         }
-    int temp = n;
-    int rev = 0;
+    }
+    temp=n;
     while (temp) {
-        rev = rev * 10 + temp % 10;
-        temp = temp / 10;
+        rev=rev*10+temp%10;
+        temp=temp/10;
     }
-    int isMagical = 1;
-    if (rev <= 1) {
-        isMagical = 0; 
-    } else {
-        for (int i = 2; i * i <= rev; i++) {
-            if (rev % i == 0) {
-                isMagical = 0; 
-                break;
-            }
-        }
-    }
-    if ( isMagical) {
-        printf("%d is a Magical Prime Number\n", n);
-    } else {
-        printf("%d is not a Magical Prime Number\n", n);
-    }
+    printf((n%sum==0) ? " %i is Magical Prime Number \n" : " %d is not a Magical \n",n);
 
-    return 0;
+return 0;
 }
-
