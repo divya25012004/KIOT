@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                break;
+            }
+        }
+    int temp = n;
+    int rev = 0;
+    while (temp) {
+        rev = rev * 10 + temp % 10;
+        temp = temp / 10;
+    }
+    int isMagical = 1;
+    if (rev <= 1) {
+        isMagical = 0; 
+    } else {
+        for (int i = 2; i * i <= rev; i++) {
+            if (rev % i == 0) {
+                isMagical = 0; 
+                break;
+            }
+        }
+    }
+    if ( isMagical) {
+        printf("%d is a Magical Prime Number\n", n);
+    } else {
+        printf("%d is not a Magical Prime Number\n", n);
+    }
+
+    return 0;
+}
+
