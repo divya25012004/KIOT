@@ -1,13 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-// Creating a node
 struct node {
     int value;
     struct node *next;
-};
-
-// Function to print the linked list
+}
 void printLinkedList(struct node *p) {
     while (p != NULL) {
         printf("%d ", p->value);
@@ -15,8 +11,6 @@ void printLinkedList(struct node *p) {
     }
     printf("\n");
 }
-
-// Function to compare two linked lists
 int compareLinkedLists(struct node *p, struct node *q) {
     while (p != NULL && q != NULL) {
         if (p->value != q->value)
@@ -24,24 +18,18 @@ int compareLinkedLists(struct node *p, struct node *q) {
         p = p->next;
         q = q->next;
     }
-    // If both lists reach the end at the same time, they are same
     return (p == NULL && q == NULL);
 }
 
 int main() {
-    // Initialize nodes for the first linked list
     struct node *one = NULL;
     struct node *two = NULL;
     struct node *three = NULL;
 
-
-    // Allocate memory for the first linked list
     one = malloc(sizeof(struct node));
     two = malloc(sizeof(struct node));
     three = malloc(sizeof(struct node));
 
-
-    // Get values for the nodes of the first linked list
     printf("Enter value for node one: ");
     scanf("%d", &one->value);
     printf("Enter value for node two: ");
@@ -49,24 +37,18 @@ int main() {
     printf("Enter value for node three: ");
     scanf("%d", &three->value);
 
-
-    // Connect nodes for the first linked list
     one->next = two;
     two->next = three;
     three->next = NULL;
    
-
-    // Print the first linked list
     printf("First linked list: ");
     printLinkedList(one);
 
-    // Create the second linked list (struct 2)
+
     struct node *one2 = malloc(sizeof(struct node));
     struct node *two2 = malloc(sizeof(struct node));
     struct node *three2 = malloc(sizeof(struct node));
   
-
-    // Get values for the nodes of the second linked list
     printf("Enter value for node one (second linked list): ");
     scanf("%d", &one2->value);
     printf("Enter value for node two (second linked list): ");
@@ -74,8 +56,6 @@ int main() {
     printf("Enter value for node three (second linked list): ");
     scanf("%d", &three2->value);
    
-
-    // Connect nodes for the second linked list
     one2->next = two2;
     two2->next = three2;
     if (compareLinkedLists(one, one2))
