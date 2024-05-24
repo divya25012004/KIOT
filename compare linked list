@@ -3,7 +3,7 @@
 struct node {
     int value;
     struct node *next;
-}
+};
 void printLinkedList(struct node *p) {
     while (p != NULL) {
         printf("%d ", p->value);
@@ -18,18 +18,18 @@ int compareLinkedLists(struct node *p, struct node *q) {
         p = p->next;
         q = q->next;
     }
+    
     return (p == NULL && q == NULL);
 }
 
 int main() {
+    
     struct node *one = NULL;
     struct node *two = NULL;
     struct node *three = NULL;
-
     one = malloc(sizeof(struct node));
     two = malloc(sizeof(struct node));
     three = malloc(sizeof(struct node));
-
     printf("Enter value for node one: ");
     scanf("%d", &one->value);
     printf("Enter value for node two: ");
@@ -37,6 +37,8 @@ int main() {
     printf("Enter value for node three: ");
     scanf("%d", &three->value);
 
+
+    
     one->next = two;
     two->next = three;
     three->next = NULL;
@@ -44,11 +46,13 @@ int main() {
     printf("First linked list: ");
     printLinkedList(one);
 
-
+    
     struct node *one2 = malloc(sizeof(struct node));
     struct node *two2 = malloc(sizeof(struct node));
     struct node *three2 = malloc(sizeof(struct node));
   
+
+    
     printf("Enter value for node one (second linked list): ");
     scanf("%d", &one2->value);
     printf("Enter value for node two (second linked list): ");
@@ -56,6 +60,8 @@ int main() {
     printf("Enter value for node three (second linked list): ");
     scanf("%d", &three2->value);
    
+
+    
     one2->next = two2;
     two2->next = three2;
     if (compareLinkedLists(one, one2))
@@ -63,8 +69,5 @@ int main() {
     else
         printf("The linked lists are different.\n");
 
-    return 0;
+    return 0;
 }
-
-
-
